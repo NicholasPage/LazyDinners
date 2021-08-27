@@ -8,30 +8,52 @@ app = Flask(__name__)
 recipes = [
     {
         'id': 1,
-        'text': 'git',
-        'ing': 'An idiot'
+        'text': 'Tacos',
+        'ing': 'Meat - or alt, tortillas, tomatoes, greek yogurt, salsa, hotsauce, lettuce, beans',
+	'dif': 'easy'
     },
     {
         'id': 2,
-        'text': 'ynan',
-        'ing': 'similar to ygran'
+        'text': 'Pizza Night',
+        'ing': 'Doughs, cheeses, tomato sauce, tomato paste, topping choices',
+	'dif': 'medium'
     },
     {
         'id': 3,
-        'text': 'get tae fuck',
-        'ing': 'please remove yourself from my presence'
+        'text': 'Mandarin Chicken',
+        'ing': 'TJs Orange Chicken, rice',
+	'dif': 'crazy easy'
     },
     {
         'id': 4,
-        'text': 'butt',
-        'ing': 'Toms face lul'
+        'text': 'Hibachi',
+        'ing': 'Meat or alt, rice, zucchini, onions, soy sauce, ginger',
+	'dif': 'medium'
     },
     {
         'id': 5,
-        'text': 'woke',
-        'ing': 'see: Nick'
+        'text': 'Steak Night',
+        'ing': 'Steaks, EVOO, garlic, mustard, soy sauce, woosh, lemon juice, salt, pepper',
+	'dif': 'date night'
+    },
+    {
+        'id': 6,
+        'text': 'Bourbon Salmon',
+        'ing': 'Salmon, bourbon, brown sugar, pineapple juice, garlic, oil, soy sauce, black pepper',
+	'dif': 'date night'
     }
-
+    {
+        'id': 7
+        'text': 'Nuggies',
+        'ing': 'frozen nuggets, mac and cheese side',
+	'dif': 'easiest'
+    }
+    {
+        'id': 8,
+        'text': 'Steak Night',
+        'ing': 'Steaks, EVOO, garlic, mustard, soy sauce, woosh, lemon juice',
+	'dif': 'medium'
+    }
 ]
 
 
