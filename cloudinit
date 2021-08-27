@@ -9,7 +9,3 @@ cd lazydinner
 
 git init
 git pull https://github.com/NicholasPage/LazyDinners
-
-export FLASK_APP=app.py
-
-flask run
