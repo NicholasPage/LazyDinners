@@ -43,7 +43,7 @@ recipes = [
 	'dif': 'date night'
     },
     {
-        'id': 7
+        'id': 7,
         'name': 'Nuggies',
         'ing': 'Frozen Nuggets, Mac and Cheese side',
 	'dif': 'easiest'
