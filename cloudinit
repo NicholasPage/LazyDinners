@@ -1,0 +1,15 @@
+#!bin/bash
+
+yum install -y pip
+yum install -y flask
+yum install -y git
+
+mkdir lazydinner
+cd lazydinner
+
+git init
+git pull https://github.com/NicholasPage/LazyDinners
+
+export FLASK_APP=app.py
+
+flask run
