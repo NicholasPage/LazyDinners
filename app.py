@@ -8,51 +8,117 @@ app = Flask(__name__)
 recipes = [
     {
         'id': 1,
-        'text': 'Tacos',
-        'ing': 'Meat - or alt, tortillas, tomatoes, greek yogurt, salsa, hotsauce, lettuce, beans',
+        'name': 'Tacos',
+        'ing': 'Meat - or alt, Tortillas, Tomatoes, Greek Yogurt, Salsa, Hotsauce, Lettuce, Beans',
 	'dif': 'easy'
     },
     {
         'id': 2,
-        'text': 'Pizza Night',
-        'ing': 'Doughs, cheeses, tomato sauce, tomato paste, topping choices',
+        'name': 'Pizza Night',
+        'ing': 'Doughs, Cheeses, Tomato Sauce, Tomato Paste, Toppings',
 	'dif': 'medium'
     },
     {
         'id': 3,
-        'text': 'Mandarin Chicken',
-        'ing': 'TJs Orange Chicken, rice',
-	'dif': 'crazy easy'
+        'name': 'Mandarin Chicken',
+        'ing': 'TJs Orange Chicken, Rice',
+	'dif': 'easy'
     },
     {
         'id': 4,
-        'text': 'Hibachi',
-        'ing': 'Meat or alt, rice, zucchini, onions, soy sauce, ginger',
+        'name': 'Hibachi',
+        'ing': 'Meat or alt, Rice, Zucchini, Onions, Soy Sauce, Ginger',
 	'dif': 'medium'
     },
     {
         'id': 5,
-        'text': 'Steak Night',
-        'ing': 'Steaks, EVOO, garlic, mustard, soy sauce, woosh, lemon juice, salt, pepper',
+        'name': 'Steak Night',
+        'ing': 'Steaks, EVOO, Garlic, Mustard, Soy Sauce, Woosh, Lemon Juice, Salt, Pepper',
 	'dif': 'date night'
     },
     {
         'id': 6,
-        'text': 'Bourbon Salmon',
-        'ing': 'Salmon, bourbon, brown sugar, pineapple juice, garlic, oil, soy sauce, black pepper',
+        'name': 'Bourbon Salmon',
+        'ing': 'Salmon, Bourbon, Brown Sugar, Pineapple Juice, Garlic, Oil, Soy Sauce, Black Pepper',
 	'dif': 'date night'
-    }
+    },
     {
         'id': 7
-        'text': 'Nuggies',
-        'ing': 'frozen nuggets, mac and cheese side',
+        'name': 'Nuggies',
+        'ing': 'Frozen Nuggets, Mac and Cheese side',
 	'dif': 'easiest'
-    }
+    },
     {
         'id': 8,
-        'text': 'Steak Night',
-        'ing': 'Steaks, EVOO, garlic, mustard, soy sauce, woosh, lemon juice',
+        'name': 'Meat Loaf',
+        'ing': 'Ground Beef or Turkey, Egg, Onion, Breadcrumbs',
+	'dif': 'easy'
+    },	
+    {
+        'id': 9,
+        'name': 'Spaghetti',
+        'ing': 'Angel Hair, Onion, Tomato Sauce, Tomato Paste, Garlic, Italian Sausage, Parsley, Basil, Woosh',
+	'dif': 'easy'
+    },
+    {
+        'id': 10,
+        'name': 'BBQ pork',
+        'ing': 'Pork Shoulder, Sauce, Apple Cider, Mustard, Paprika, Chili Powder, Brown Sugar, Cayenne, Garlic Powder',
+	'dif': 'hard'
+    },
+    {
+        'id': 11,
+        'name': 'Fajitas',
+        'ing': 'Bell Peppers, Onions, Optional meat, Tortillas, Avocado, Refried Beans, Rice, Salsa',
+	'dif': 'easy'
+    },
+    {
+        'id': 12,
+        'name': 'Black Bean Tostadas',
+        'ing': 'Black Beans, Corn, Tortillas, Chives, Avocado, Red Onion, Jalapeno, Greek Yogurt, Lemon Juice, Cilantro',
+	'dif': 'easy'
+    },
+    {
+        'id': 13,
+        'name': 'Summer Rolls',
+        'ing': 'Rice Paper, Cilantro, Carrots, Vermicelli Noodles, Cucumber, Cabbage, Peanut Sauce - ginger, garlic, peanut butter, soy sauce, rice vinegar',
 	'dif': 'medium'
+    },
+    {
+        'id': 14,
+        'name': 'Soba Noodles',
+        'ing': 'Buckwhear Soba Noodles, Sesame Oil, Rice Vinegar, Soba Dipping Sauce',
+	'dif': 'easy'
+    },
+    {
+        'id': 15,
+        'name': 'Soup and Grilled Cheese',
+        'ing': 'Tomato or other Soup, Bread, Cheddar, Gouda',
+	'dif': 'easy'
+    },
+    {
+        'id': 16,
+        'name': 'Terryaki Chicken - BCBR',
+        'ing': 'Chicken Breast, Mirin, Soy Sauce, Rice',
+	'dif': 'easy'
+    },
+    {
+        'id': 17,
+        'name': 'Philly CheeseSteaks',
+        'ing': 'Ribeyes, Provolone, Green Pepper, Onion, Mushrooms, Hoagie Rolls',
+	'dif': 'medium'
+    },
+    {
+        'id': 18,
+        'name': 'Tomato Gnocchi',
+        'ing': 'Gnocchi, Sundried Tomatoes, Garlic, Vegetable Stock, Heavy Cream, Basil, Parmesan',
+	'dif': 'medium'
+    },
+    {
+        'id': 19,
+        'name': 'Spinach Goat Cheese Pasta',
+        'ing': 'Spinach, Goat Cheese, Pasta, Lemon Juice',
+	'dif': 'easy'
     }
 ]
 
@@ -66,7 +132,6 @@ def Get_Recipe(id):
     recipe = recipes[id-1]
     return jsonify({'recipe': recipe})
 
-
 	
 @app.route('/recipe/api/v1.0/recipe/allrecipes', methods=['GET'])
 def Get_Allrecipes():
@@ -78,14 +143,14 @@ def Get_Allrecipes():
 def Get_Recipeoftheday():
     """Return a random recipe"""
     recipe = random.choice(recipes)
-    return jsonify({'Word of the day': recipe['text']}, {'Definition': recipe['def']})
+    return jsonify({'Meal of the day': recipe['name']}, {'Ingredients': recipe['ing']}, {'Difficulty Level': recipe['dif']})
 
 	
 @app.route('/recipe/api/v1.0/newrecipe', methods=['POST'])
 def Create_Recipe():
     """Adds a recipe to the list"""
 	#Example
-	#curl -H "Content-Type: application/json" -X POST -d '{"text":"sampletext","def":"sampledef"}' http://localhost:5000/recipe/api/v1.0/newrecipe
+	#curl -H "Content-Type: application/json" -X POST -d '{"name":"recipename","ing":"ingredient1, ingredient2, ingredient3","dif":"difficultylevel"}' http://localhost:5000/recipe/api/v1.0/newrecipe
     if not request.json or not 'text' in request.json:
         abort(400)
     recipe = {
