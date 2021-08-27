@@ -143,7 +143,7 @@ def Get_Allrecipes():
 def Get_Recipeoftheday():
     """Return a random recipe"""
     recipe = random.choice(recipes)
-    return jsonify({'Meal of the day': recipe['name']}\\n, {'Ingredients': recipe['ing']}\\n, {'Difficulty Level': recipe['dif']}\\n)
+    return jsonify({'Meal of the day': recipe['name']}, {'Ingredients': recipe['ing']}, {'Difficulty Level': recipe['dif']})
 
 	
 @app.route('/recipe/api/v1.0/newrecipe', methods=['POST'])
