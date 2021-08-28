@@ -142,6 +142,8 @@ def Get_Allrecipes():
 @app.route('/recipe/api/v1.0/recipe/recipeoftheday', methods=['GET'])
 def Get_Recipeoftheday():
     """Return a random recipe"""
+	#Example
+	#curl -X GET http://localhost:5000/recipe/api/v1.0/recipe/recipeoftheday
     recipe = random.choice(recipes)
     return jsonify({'Meal of the day': recipe['name']}, {'Ingredients': recipe['ing']}, {'Difficulty Level': recipe['dif']})
 
@@ -169,7 +171,7 @@ def Delete_RecipeById(id):
         abort(404)
     recipe = recipes[id-1]
     recipes.remove(recipe)
-    return jsonify({'Successfully removed the recipe': recipe['text']})
+    return jsonify({'Successfully removed the recipe': recipe['name']})
 
 
 if __name__ == '__main__':
