@@ -19,6 +19,8 @@ object_data = json.loads(object['Body'].read())
 data = []
 data += object_data
 
+recipes = data
+
 @app.route('/recipe/api/v1.0/recipe/<int:id>', methods=['GET'])
 def Get_Recipe(id):
     """Return recipe by ID"""
@@ -40,14 +42,14 @@ def Get_Recipeoftheday():
 	#Example
 	#curl -X GET http://localhost:5000/recipe/api/v1.0/recipe/recipeoftheday
     recipe = random.choice(recipes)
-    return jsonify({'Meal of the day': recipe['name']}, {'Ingredients': recipe['ing']}, {'Difficulty Level': recipe['dif']})
+    return jsonify({'Meal of the day': recipe['name']}, {'Ingredients': recipe['ingredients']}, {'Difficulty Level': recipe['difficulty']})
 
 	
 @app.route('/recipe/api/v1.0/newrecipe', methods=['POST'])
 def Create_Recipe():
     """Adds a recipe to the list"""
 	#Example
-	#curl -H "Content-Type: application/json" -X POST -d '{"name":"recipename","ing":"ingredient1, ingredient2, ingredient3","dif":"difficultylevel"}' http://localhost:5000/recipe/api/v1.0/newrecipe
+	#curl -H "Content-Type: application/json" -X POST -d '{"name":"recipename","ingredients":"ingredient1, ingredient2, ingredient3","difficulty":"difficultylevel"}' http://localhost:5000/recipe/api/v1.0/newrecipe
     if not request.json or not 'text' in request.json:
         abort(400)
     recipe = {
