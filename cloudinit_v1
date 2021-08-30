@@ -9,4 +9,4 @@ mkdir lazydinner
 cd lazydinner
 
 git init
-git pull https://github.com/NicholasPage/LazyDinners
+git pull https://github.com/NicholasPage/LazyDinners_v1
