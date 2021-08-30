@@ -1,5 +1,5 @@
 #!flask/bin/python
-"""Maybe for real this time"""
+"""LOL a handmade list"""
 import random
 from flask import Flask, jsonify, request, abort, make_response
 
