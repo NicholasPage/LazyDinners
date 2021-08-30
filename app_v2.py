@@ -1,5 +1,5 @@
 #!flask/bin/python
-"""Maybe for real this time"""
+"""Now let's build a JSON from s3. Did someone say stateful?"""
 import random
 import json
 import boto3
