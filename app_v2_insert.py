@@ -50,12 +50,12 @@ def Create_Recipe():
     """Adds a recipe to the list"""
 	#Example
 	#curl -H "Content-Type: application/json" -X POST -d '{"name":"recipename","ingredients":"ingredient1, ingredient2, ingredient3","difficulty":"difficultylevel"}' http://localhost:5000/recipe/api/v1.0/newrecipe
-    if not request.json or not 'text' in request.json:
+    if not request.json or not 'name' in request.json:
         abort(400)
     recipe = {
-        'name': request.json.get('name', ""),
-        'ingredients': request.json.get('ingredients', ""),
-	'difficulty': request.json.get('difficulty', "")
+        "name": request.json.get("name", ""),
+        "ingredients": request.json.get("ingredients", ""),
+	"difficulty": request.json.get("difficulty", "")
     }
     recipes.append(recipe)
     return jsonify({'recipe': recipe}), 201
